@@ -8,12 +8,13 @@ matrix:
         - docker
       env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
            PY_VER=cp27-cp27mu
-    - sudo: required
-      services:
-        - docker
-      env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686
-           PRE_CMD=linux32
-           PY_VER=cp27-cp27mu
+
+#    - sudo: required
+#      services:
+#        - docker
+#      env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686
+#           PRE_CMD=linux32
+#           PY_VER=cp27-cp27mu
 
 install:
   - docker pull $DOCKER_IMAGE
