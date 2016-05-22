@@ -1,2 +1,1 @@
 pycoda
-lxml==3.3.5

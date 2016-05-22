@@ -7,13 +7,14 @@ yum install -y $(cat /io/rpms.txt)
 
 # Enumerate all we need to build
 cat \
-  /io/requirements-oca.txt \
-  | sort | uniq > /io/requirements.txt
+  /io/requirements*.txt \
+  | sort | uniq > /io/build-requirements.txt
 
 # Compile wheels
+rm -fr /io/wheelhouse/
 rm -fr /io/wheelhouse.tmp/
 PYBIN=/opt/python/${PY_VER}/bin
-${PYBIN}/pip wheel -r /io/requirements.txt -w /io/wheelhouse.tmp/
+${PYBIN}/pip wheel -r /io/build-requirements.txt -w /io/wheelhouse.tmp/
 
 # Copy platform-independent wheels
 mkdir /io/wheelhouse
