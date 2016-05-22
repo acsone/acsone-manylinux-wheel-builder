@@ -1,16 +1,18 @@
 notifications:
   email: false
 
-sudo: required
-services:
-  - docker
-
 matrix:
   include:
-    - env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 
+    - sudo: required
+      services:
+        - docker
+      env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 
            PY_VER=cp27-cp27mu
 
-#    - env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686
+#    - sudo: required
+#      services:
+#        - docker
+#      env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686
 #           PRE_CMD=linux32
 #           PY_VER=cp27-cp27mu
 
