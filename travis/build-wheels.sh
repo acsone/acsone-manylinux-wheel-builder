@@ -11,12 +11,15 @@ cat \
   | sort | uniq > /io/requirements.txt
 
 # Compile wheels
+rm -fr /io/wheelhouse.tmp/
 PYBIN=/opt/python/${PY_VER}/bin
-${PYBIN}/pip wheel -r /io/requirements.txt -w /tmp/wheelhouse/
+${PYBIN}/pip wheel -r /io/requirements.txt -w /io/wheelhouse.tmp/
+
+# Copy platform-independent wheels
+mkdir /io/wheelhouse
+mv /io/wheelhouse.tmp/*-any.whl /io/wheelhouse/
 
 # Bundle external shared libraries into the wheels
-mkdir /io/wheelhouse
-cp -a /tmp/wheelhouse/*.whl /io/wheelhouse/
-for whl in /tmp/wheelhouse/*-${PY_VER}-linux_$(uname -i).whl; do
+for whl in /io/wheelhouse.tmp/*-linux_$(uname -i).whl; do
     auditwheel repair $whl -w /io/wheelhouse/
 done
