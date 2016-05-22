@@ -22,4 +22,3 @@ install:
 script:
   - docker run -e "PY_VER=$PY_VER" --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh
   - ls wheelhouse/
-  - ls wheelhouse.tmp/

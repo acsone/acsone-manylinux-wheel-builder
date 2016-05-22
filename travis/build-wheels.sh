@@ -22,4 +22,8 @@ mv /io/wheelhouse.tmp/*-any.whl /io/wheelhouse/
 # Bundle external shared libraries into the wheels
 for whl in /io/wheelhouse.tmp/*-linux_$(uname -i).whl; do
     auditwheel repair $whl -w /io/wheelhouse/
+    rm $whl
 done
+
+# Should be empty if all wheels have been processed
+rmdir /io/wheelhouse.tmp || ls /io/wheelhouse.tmp && exit 1
