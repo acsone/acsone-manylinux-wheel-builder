@@ -3,7 +3,7 @@ set -e -x
 shopt -s nullglob
 
 # Install system packages required by our libraries
-# TODO
+yum install -y $(cat /io/rpms.txt)
 
 # Enumerate all we need to build
 cat \
