@@ -1,11 +1,6 @@
 notifications:
   email: false
 
-#env:
-#  global:
-#    - secure: "mG+k3jQwTOeuNYWbWvbp7dykbS3wFUHv67yKMCZCKdKrxMc7UNLVv4CyfOb2XFGIvfg9FuZWoGi94RHVNWuUQs3DhRgDmerbWe4zAUesV+ctWZVCdBF+hoesWHoM8ocZip6RI32ooERH0Cn+R/2lkY02t4KXnIhKHM/d4dXAuZG+Gui/BWbPK3rfbVYvbUflAInfYMNxyl9RJQlwB74r0tN6lhFZD0gCWrQus445msg4ZHBp6uWn5j+ur7nsO7yxRUxyEX8MNaxYrYCHtzfogRnxQBZzFWVAX75n3jL5Fk/YSP+vzeFhvDJch8T68GzA5vzdJjQnRKWfd+TayTzyJm6UNXepY2GNG33+gj36SX78JpBVEr7/fIwRw89CZ06xJlEYYdpj8yylTjrHp4yyHZ+UAd+803XyO1ny3Vr6lePmN8aPYR3cYeBr3TZou8qanEc9rRsK3SJC5aCObGzrAeGE6bJl1Q8Pr3zug/anZyf5kECXRJYf8zPFD/qgbeEjNdtroUxzJzIC28XygBedUZ0ZbshuDmvMDn+As+6H2ADJOXlLT9VeMKh5yEE0tADomXp9eNKa6FFIrLn1j7IptnLcVTardhlg9tb0kQPRJq+FdstYuujNi6cxGPMslyZsaByqdMQ3xZ07vZG0XpQUypiZJ01UN9Ue4MWtQl/bBBU="
-#    - secure: "qKdlGr+gk9HKKN81bBUg9PI44MR173XKHEFJ6DZEYWdaJwpaZ/gYV23f8JSKp66ikxsTJ/6VhRIIKaDj4bKYq/hTIkzutWiRTKpsDJoTLfspR3SbQ781KYZG1a10oH22vso6Ar7A4HRzIe7kyHwL/VDJeW3f8BL8WTTdk5epjOU+/TcaIzYgjwT4TQ4gb7YSBtrbdTEXKlKQrJVD1/evUTyC4sAiaQ+mJdwwvhOUiuIIIIyGbJBrWvt8XdJ9hOxHL6EOyyDAuvQ+UsAEiJDzAqje/s0BuIJogEejPNfcIZFyf2SusamS+bFc+jFHgdMVhlq/QHgdROkFricvdoRBv2sa0MMHKARJbU2MQdYobFXSmq9CYUI0cH9LIk1MAVSdAs3l2N94MyakyZl/Y/G3Srg1bKgvy6QkLuM3Cuv46sv2Ldxkub+Xl/t9IC7suooXqVllbMg7Ht+232kh1kIBq1ob4/bU+KGgI8V+wOvWOoT5Rjdgv716WM24NU4Xinvu3s1vN2oapfn2P+6GyF8snQ6dRO7qD7JK6bAiXqihN1FdNn1GBuTTvE3d9R78tqz5AK/83bbaS8tDcY8Nnu/t4mN5J206Gne+SUMttLfsiarQqUj1ggYvh22NBy5urmrtetElm9M+m/ox0lPvw0mULRuG/TCUpbY5iy0Y3RuoLLY="
-
 matrix:
   include:
     sudo: required
@@ -18,7 +13,8 @@ install:
   - docker pull $DOCKER_IMAGE
 
 script:
-  - docker run -e "PY_VER=$PY_VER" --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh
+  - docker run -e "PY_VER=$PY_VER" --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/build-wheels.sh
   - ls wheelhouse/
-  - export SSHPASS=$RSYNC_PASS
-  - sshpass -e rsync -avz wheelhouse/ $RSYNC_USER@wheelhouse.acsone.eu:
+ 
+#  - export SSHPASS=$RSYNC_PASS
+#- sshpass -e rsync -avz wheelhouse/ $RSYNC_USER@wheelhouse.acsone.eu:

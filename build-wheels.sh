@@ -2,19 +2,20 @@
 set -e -x
 shopt -s nullglob
 
-# Install system packages required by our libraries
-yum install -y $(cat /io/rpms.txt)
-
 # Enumerate all we need to build
-cat \
-  /io/requirements*.txt \
-  | sort | uniq > /io/build-requirements.txt
+REQS=$(ls /io/requirements-*.txt)
+
+/io/build-deps.sh
+
+source /io/build-env.sh
 
 # Compile wheels
 rm -fr /io/wheelhouse/
 rm -fr /io/wheelhouse.tmp/
 PYBIN=/opt/python/${PY_VER}/bin
-${PYBIN}/pip wheel -r /io/build-requirements.txt -w /io/wheelhouse.tmp/
+for req in $REQS; do
+  ${PYBIN}/pip wheel -r $req -w /io/wheelhouse.tmp/
+done
 
 # Copy platform-independent wheels
 mkdir /io/wheelhouse
@@ -28,3 +29,5 @@ done
 
 # Should be empty if all wheels have been processed
 rmdir /io/wheelhouse.tmp || ls /io/wheelhouse.tmp && exit 1
+
+rm /io/wheelhouse/pip-*.whl /io/wheelhouse/setuptools-*.whl
