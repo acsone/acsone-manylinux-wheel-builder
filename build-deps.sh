@@ -56,6 +56,10 @@ pushd openldap-*
 make depend
 make
 make install
+# we need these symlink to build older version of python-ldap
+pushd /usr/local/include
+for f in sasl/*.h ; do ln -s $f ; done
+popd
 popd
 
 # recent libpq for psycopg2
