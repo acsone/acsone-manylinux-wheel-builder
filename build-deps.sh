@@ -1,26 +1,69 @@
 #!/bin/bash
 set -e -x
+
+DOWNLOADS=/io/downloads
+
 mkdir -p build
 cd build
 
-# zlib required by Pillow, psycopg2 and others
-yum install -y zlib-devel
+# build tools
+yum install -y groff
 
 # libjpeg and libtiff required for Pillow
 yum install -y libtiff-devel libjpeg-devel
 
-# libyaml required for PyYAML
-yum install -y libyaml-devel
+# recent zlib
+rm -fr zlib-*
+tar zxvf $DOWNLOADS/zlib.tgz
+pushd zlib-*
+./configure --prefix=/usr/local
+make
+make install
+popd
 
-# ldap client libs for python-ldap
-yum install -y openldap24-libs-devel
+# recent openssl
+rm -fr openssl-*
+tar zxf $DOWNLOADS/openssl.tgz
+pushd openssl-*
+./config --prefix=/usr/local zlib shared
+make
+make install
+popd
+
+# recent cyrus-sasl
+rm -fr cyrus-sasl-*
+tar zxf $DOWNLOADS/cyrus-sasl.tgz
+pushd cyrus-sasl-*
+./configure --prefix=/usr/local
+make
+make install
+popd
+
+# recent krb5
+rm -fr krb5-*
+tar zxf $DOWNLOADS/krb5.tgz
+pushd krb5-*/src
+./configure --prefix=/usr/local
+make
+make install
+popd
+
+# recent openldap client
+rm -fr openldap-*
+tar zxf $DOWNLOADS/openldap.tgz
+pushd openldap-*
+./configure --prefix=/usr/local --enable-slapd=no --with-cyrus-sasl=yes
+make depend
+make
+make install
+popd
 
 # recent libpq for psycopg2
 rm -fr postgres-*
-wget https://ftp.postgresql.org/pub/source/v9.5.3/postgresql-9.5.3.tar.gz -O postgresql.tgz
-tar zxf postgresql.tgz
+tar zxf $DOWNLOADS/postgresql.tgz
 pushd postgresql-*
-./configure --prefix=/usr/local --without-readline
+./configure --prefix=/usr/local --without-readline --with-openssl --with-gssapi
+sed -i 's,DEFAULT_PGSOCKET_DIR.*,DEFAULT_PGSOCKET_DIR "/var/run/postgresql",' ./src/include/pg_config_manual.h
 make -C src/bin install
 make -C src/include install || echo "ignoring error"
 make -C src/interfaces install
@@ -28,8 +71,7 @@ popd
 
 # recent libxml2 required for lxml
 rm -fr libxml2-*
-wget ftp://xmlsoft.org/libxml2/LATEST_LIBXML2 -O libxml2.tgz
-tar zxf libxml2.tgz
+tar zxf $DOWNLOADS/libxml2.tgz
 pushd libxml2-*
 ./configure --without-python
 make
@@ -38,8 +80,7 @@ popd
 
 # recent libxslt required for lxml
 rm -fr libxslt-*
-wget ftp://xmlsoft.org/libxml2/LATEST_LIBXSLT -O libxslt.tgz
-tar zxf libxslt.tgz
+tar zxf $DOWNLOADS/libxslt.tgz
 pushd libxslt-*
 ./configure --without-python
 make
