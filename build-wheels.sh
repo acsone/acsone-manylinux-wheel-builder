@@ -10,7 +10,7 @@ REQS=$@
 echo PYVER=$PY_VER
 echo REQS=$REQS
 mkdir /io/wheelhouse
-exit 1
+exit 0
 
 /io/build-deps.sh
 
