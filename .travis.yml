@@ -6,16 +6,18 @@ notifications:
 services:
   - docker
 
-env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
-     PY_VER=cp27-cp27mu
-     REQS="requirements-odoo8.txt requirements-odoo9.txt requirements-oca.txt"
+env:
+  matrix:
+    - DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp27-cp27mu REQS="requirements-odoo8.txt requirements-odoo9.txt requirements-oca.txt"
+  global:
+    secure: p/+ykDHwffzWOZzBXPy2/p1l0cLQ74o3vDXMaAwU6XK6G0wRVL8iOcJeDzMW8Zz1kUDv1l5hjU51JvLeum0F98Th20m5jCWKo6KIx/1lfED+hPEgsBGOPxMTZXQrVpIPjsoNtoH75w+Hio2d6kdg9zuEkpEUTG7K4ypNjeMEiQBXRCqL+pxpx5T0zmKsj8TCpqZUQuusaeCSnUs1vBssRVFemrykT/MpNqXy7nuEj81rRg//75/xXIf+zYkziacO76YS0ufawVfYuu64aSG56y1DPiQqdpbWc602grdZAsBqDSjNoCMkRnljhfeoCq0TpOCKR9N90g260dhbCXqLBl/yRztDG2Ysz+bwHDVQGLv20s60mcVIY5Y3r3eD1iKtJBS4bq3tUV16BvmXl5gbpBvcWe1pLk0jIw7GOuOehJfO4JaR5Kw/w2v2weEVQJvZhX+NITuNeX8BGfAjj7W4imemMQOjH29miy4TatnestuJwoJ3zpmtLyYHqUCInc6G/3KhwBjFfdQjMhCH6k9jXcovgGhgzruJ1VG25LPbpoEY97istC8O/AL2+IOHSEk0XGxPuY+JvM9JeqvFQ0pML51PdewbO2KMo04OT6B6UHR4ahc7otBH8YvpUbXGyRRWtne9XMXbzVZ4+jvFA72gK4CyvWVL5dXjnaOUZdMJFrs=
 
 install:
   - docker pull $DOCKER_IMAGE
-  - ./download.sh
+    #- ./download.sh
 
 script:
-  - docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh $PY_VER $REQS
+  - docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/build-wheels.sh $PY_VER $REQS
 
 after_success:
   - ls ./wheelhouse/
