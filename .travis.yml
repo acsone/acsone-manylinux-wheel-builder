@@ -10,7 +10,7 @@ env:
   matrix:
     - DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp27-cp27mu REQS="requirements-odoo8.txt requirements-odoo9.txt requirements-oca.txt"
   global:
-    secure: p/+ykDHwffzWOZzBXPy2/p1l0cLQ74o3vDXMaAwU6XK6G0wRVL8iOcJeDzMW8Zz1kUDv1l5hjU51JvLeum0F98Th20m5jCWKo6KIx/1lfED+hPEgsBGOPxMTZXQrVpIPjsoNtoH75w+Hio2d6kdg9zuEkpEUTG7K4ypNjeMEiQBXRCqL+pxpx5T0zmKsj8TCpqZUQuusaeCSnUs1vBssRVFemrykT/MpNqXy7nuEj81rRg//75/xXIf+zYkziacO76YS0ufawVfYuu64aSG56y1DPiQqdpbWc602grdZAsBqDSjNoCMkRnljhfeoCq0TpOCKR9N90g260dhbCXqLBl/yRztDG2Ysz+bwHDVQGLv20s60mcVIY5Y3r3eD1iKtJBS4bq3tUV16BvmXl5gbpBvcWe1pLk0jIw7GOuOehJfO4JaR5Kw/w2v2weEVQJvZhX+NITuNeX8BGfAjj7W4imemMQOjH29miy4TatnestuJwoJ3zpmtLyYHqUCInc6G/3KhwBjFfdQjMhCH6k9jXcovgGhgzruJ1VG25LPbpoEY97istC8O/AL2+IOHSEk0XGxPuY+JvM9JeqvFQ0pML51PdewbO2KMo04OT6B6UHR4ahc7otBH8YvpUbXGyRRWtne9XMXbzVZ4+jvFA72gK4CyvWVL5dXjnaOUZdMJFrs=
+    secure: "ryWK6XyF08Ps6youYQHVIMYh5ulmMY135al8fxTtJjDoR4z9ruR/RW6y+MdAONyWgvLeTSrEDcygf137GDobXjhPAzvSuO/Obvn6ja9p3ia69GFaPo/GzGT4QQKqJIlUZi8ooUYMb9VzZVVMxzS/L8azrZKGNTYY22id6idYDoxL8jeuvoYDx5wf7RCG21Aw2eHSPdPhmmC+K6Aiw2dYbKP09KsqWTQIqlVUq762CviNaz48J9coWL5QPvR49i0/pd8hk0MlaEc2uYA34nLk07LW77k1Mqt1h4YC57nJa2zJo5rwOfxAUIrNRqlBjeq64HOWMF95u/A2UpvIVQ5Lmsthz1p+r5dIl6rUVNWGuQMF+GqNYLlE9BbUJ4W9CMeiRRKejD6poq/mAiidj+TKfhpR6qVrbC9BwdyZTZHu8BmyTdMimh3ogMkxNQHh6uZyvEbzQVRchWaaAXjhK3nbjL7gzR738VScumMAuHpT6y9UKK3nEQTe0MTKt+TmRQvJwYJBH4jNq8GSPr2Zb8LvWbCfOUExHtd3eQ6lnUB6dIC6fBigRT1ai5BF9yJLBuiyZH6JbQuI5jNapygnHvh2fK8HxArBylQShAE9zCL02jrOSlHbdrcq17kbfk4WovFhsVeC2lBv/jPRSkRUaaWiHbnebUo5D4HKp3NiVJ1vcWE="
 
 install:
   - docker pull $DOCKER_IMAGE
@@ -20,4 +20,4 @@ script:
   - docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/build-wheels.sh $PY_VER $REQS
 
 after_success:
-  - ls ./wheelhouse/
+  - sshpass -e rsync -avz ./wheelhouse/ $SSHUSER@wheelhouse.acsone.eu:/var/www/wheelhouse/manylinux1/
