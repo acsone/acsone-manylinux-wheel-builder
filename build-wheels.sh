@@ -17,7 +17,7 @@ mkdir -p /io/cache
 rm -fr /io/wheelhouse.tmp
 PYBIN=/opt/python/${PY_VER}/bin
 for req in $REQS; do
-  ${PYBIN}/pip wheel -r $req -w /io/wheelhouse.tmp/ --cache-dir=/io/cache
+  ${PYBIN}/pip wheel -r /io/$req -w /io/wheelhouse.tmp/ --cache-dir=/io/cache
 done
 
 # Copy platform-independent wheels
