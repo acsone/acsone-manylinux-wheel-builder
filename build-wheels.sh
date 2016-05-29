@@ -3,7 +3,13 @@ set -e -x
 shopt -s nullglob
 
 # Enumerate all we need to build
-REQS=$(ls /io/requirements-*.txt)
+PY_VER=$1
+shift
+REQS=$@
+
+echo PYVER=$PY_VER
+echo REQS=$REQS
+exit 1
 
 /io/build-deps.sh
 

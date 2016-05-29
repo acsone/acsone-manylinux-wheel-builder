@@ -1,0 +1,21 @@
+language: python
+sudo: required
+notifications:
+  email: false
+
+services:
+  - docker
+
+env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+     PY_VER=cp27-cp27mu
+     REQS="requirements-odoo8.txt requirements-odoo9.txt requirements-oca.txt"
+
+install:
+  - docker pull $DOCKER_IMAGE
+  - ./download.sh
+
+script:
+  - docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh $PY_VER $REQS
+
+after_success:
+  - ls ./wheelhouse/
