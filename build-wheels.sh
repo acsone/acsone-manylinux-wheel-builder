@@ -9,9 +9,6 @@ REQS=$@
 
 echo PYVER=$PY_VER
 echo REQS=$REQS
-mkdir /io/wheelhouse
-echo "test" > /io/wheelhouse/TEST
-exit 0
 
 /io/build-deps.sh
 
@@ -34,7 +31,7 @@ for whl in /io/wheelhouse.tmp/*-linux_$(uname -i).whl; do
     rm $whl
 done
 
-rm /io/wheelhouse/pip-*.whl /io/wheelhouse/setuptools-*.whl
+rm -f /io/wheelhouse/pip-*.whl /io/wheelhouse/setuptools-*.whl
 
 # Should be empty if all wheels have been processed
 rmdir /io/wheelhouse.tmp || ls /io/wheelhouse.tmp && exit 1
