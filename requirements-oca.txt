@@ -1,5 +1,4 @@
 pycoda
 pycrypto
-pycups
 py-Asterisk
 xlsxwriter
