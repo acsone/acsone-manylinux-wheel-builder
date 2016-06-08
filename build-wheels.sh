@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e -x
+set -x
 shopt -s nullglob
 
 # Enumerate all we need to build
@@ -10,7 +10,13 @@ REQS=$@
 echo PYVER=$PY_VER
 echo REQS=$REQS
 
-/io/build-deps.sh
+/io/build-deps.sh &> /io/build-deps.log
+if [ $? -ne 0 ] ; then
+  cat /io/build-deps.log
+  exit 1
+fi
+
+set -e
 
 # Compile wheels
 mkdir -p /io/cache
@@ -23,6 +29,7 @@ done
 # Copy platform-independent wheels
 rm -fr /io/wheelhouse
 mkdir -p /io/wheelhouse
+rm -f /io/wheelhouse.tmp/pip-*.whl /io/wheelhouse.tmp/setuptools-*.whl
 mv /io/wheelhouse.tmp/*-any.whl /io/wheelhouse/
 
 # Bundle external shared libraries into the wheels
@@ -30,8 +37,3 @@ for whl in /io/wheelhouse.tmp/*-linux_$(uname -i).whl; do
     auditwheel repair $whl -w /io/wheelhouse/
     rm $whl
 done
-
-rm -f /io/wheelhouse/pip-*.whl /io/wheelhouse/setuptools-*.whl
-
-# Should be empty if all wheels have been processed
-rmdir /io/wheelhouse.tmp || ls /io/wheelhouse.tmp && exit 1
