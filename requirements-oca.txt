@@ -1,3 +1,4 @@
+genshi
 pycoda
 pycrypto
 py-Asterisk
