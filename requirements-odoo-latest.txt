@@ -1,8 +1,10 @@
 argparse
+beautifulsoup4
 Babel
 decorator
 docutils
 feedparser
+funcsigs
 gdata
 gevent
 greenlet
@@ -26,6 +28,7 @@ Python-Chart
 python-dateutil
 python-ldap
 python-openid
+python-stdnum
 pytz
 pyusb
 PyYAML
