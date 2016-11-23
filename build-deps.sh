@@ -12,6 +12,9 @@ yum install -y groff
 # libjpeg and libtiff required for Pillow
 yum install -y libtiff-devel libjpeg-devel
 
+# cffi required for cryptography
+yum install libffi-devel
+
 # recent zlib
 rm -fr zlib-*
 tar zxvf $DOWNLOADS/zlib.tgz
