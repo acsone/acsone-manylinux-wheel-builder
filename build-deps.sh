@@ -13,7 +13,7 @@ yum install -y groff
 yum install -y libtiff-devel libjpeg-devel
 
 # cffi required for cryptography
-yum install libffi-devel
+yum install -y libffi-devel
 
 # recent zlib
 rm -fr zlib-*
