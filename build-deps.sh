@@ -6,6 +6,9 @@ DOWNLOADS=/io/downloads
 mkdir -p build
 cd build
 
+# cups-devel required by pycups
+yum install -y cups-devel
+
 # build tools
 yum install -y groff
 
