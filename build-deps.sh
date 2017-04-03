@@ -1,10 +1,19 @@
 #!/bin/bash
+exec 3>&1
+special_echo () {
+    echo "$@" >&3
+}
+
+exec &> /io/build-deps.log
+
 set -e -x
 
 DOWNLOADS=/io/downloads
 
 mkdir -p build
 cd build
+
+special_echo "some yum install..."
 
 # cups-devel required by pycups
 yum install -y cups-devel
@@ -19,6 +28,7 @@ yum install -y libtiff-devel libjpeg-devel
 yum install -y libffi-devel
 
 # recent zlib
+special_echo "zlib"
 rm -fr zlib-*
 tar zxvf $DOWNLOADS/zlib.tgz
 pushd zlib-*
@@ -28,6 +38,7 @@ make install
 popd
 
 # recent openssl
+special_echo "openssl"
 rm -fr openssl-*
 tar zxf $DOWNLOADS/openssl.tgz
 pushd openssl-*
@@ -37,6 +48,7 @@ make install
 popd
 
 # recent cyrus-sasl
+special_echo "cyrus-sasl"
 rm -fr cyrus-sasl-*
 tar zxf $DOWNLOADS/cyrus-sasl.tgz
 pushd cyrus-sasl-*
@@ -46,6 +58,7 @@ make install
 popd
 
 # recent krb5
+special_echo "krb5"
 rm -fr krb5-*
 tar zxf $DOWNLOADS/krb5.tgz
 pushd krb5-*/src
@@ -55,6 +68,7 @@ make install
 popd
 
 # recent openldap client
+special_echo "openldap"
 rm -fr openldap-*
 tar zxf $DOWNLOADS/openldap.tgz
 pushd openldap-*
@@ -69,6 +83,7 @@ popd
 popd
 
 # recent libpq for psycopg2
+special_echo "postgres"
 rm -fr postgres-*
 tar zxf $DOWNLOADS/postgresql.tgz
 pushd postgresql-*
@@ -80,6 +95,7 @@ make -C src/interfaces install
 popd
 
 # recent libxml2 required for lxml
+special_echo "libxml2"
 rm -fr libxml2-*
 tar zxf $DOWNLOADS/libxml2.tgz
 pushd libxml2-*
@@ -89,6 +105,7 @@ make install
 popd
 
 # recent libxslt required for lxml
+special_echo "libxslt"
 rm -fr libxslt-*
 tar zxf $DOWNLOADS/libxslt.tgz
 pushd libxslt-*

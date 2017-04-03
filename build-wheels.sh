@@ -10,7 +10,7 @@ REQS=$@
 echo PYVER=$PY_VER
 echo REQS=$REQS
 
-/io/build-deps.sh &> /io/build-deps.log
+/io/build-deps.sh
 if [ $? -ne 0 ] ; then
   cat /io/build-deps.log
   exit 1
