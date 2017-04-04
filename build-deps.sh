@@ -18,9 +18,6 @@ special_echo "some yum install..."
 # since CentOS 5 is obsolete, use the vault repo
 sed -i'' -e 's/^mirrorlist/#mirrorlist/' -e 's,^#baseurl=http://mirror.centos.org,baseurl=http://vault.centos.org,' /etc/yum.repos.d/CentOS-Base.repo
 
-# cups-devel required by pycups
-yum install -y cups-devel
-
 # build tools
 yum install -y groff
 
@@ -29,6 +26,16 @@ yum install -y libtiff-devel libjpeg-devel
 
 # cffi required for cryptography
 yum install -y libffi-devel
+
+# recent cups
+special_echo "cups"
+rm -fr cups-*
+tar zxvf $DOWNLOADS/cups.tgz
+pushd cups-*
+./configure --prefix=/usr/local
+make
+make install
+popd
 
 # recent zlib
 special_echo "zlib"

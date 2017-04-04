@@ -3,6 +3,7 @@ set -e -x
 rm -fr downloads
 mkdir downloads
 pushd downloads
+wget https://github.com/apple/cups/releases/download/v2.2.3/cups-2.2.3-source.tar.gz -O cups.tgz
 wget ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz -O cyrus-sasl.tgz
 wget ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.44.tgz -O openldap.tgz
 wget http://zlib.net/zlib-1.2.11.tar.gz -O zlib.tgz
