@@ -1,0 +1,16 @@
+constantly==15.1.0
+incremental==16.10.1
+JPype1==0.6.1
+py3o.formats==0.3
+py3o.renderers.juno==0.8
+py3o.renderserver==0.5.1
+pyf.splitter==3.1
+pyf.station==2.0.5
+pyf.transport==2.0.1
+pyjon.events==1.2
+pyjon.utils==0.7
+python-dateutil==2.6.0
+simplejson==3.10.0
+six==1.10.0
+Twisted==16.6.0
+zope.interface==4.3.2
