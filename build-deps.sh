@@ -15,6 +15,9 @@ cd build
 
 special_echo "some yum install..."
 
+# since CentOS 5 is obsolete, use the vault repo
+sed -i'' -e 's/^mirrorlist/#mirrorlist/' -e 's,^#baseurl=http://mirror.centos.org,baseurl=http://vault.centos.org,' /etc/yum.repos.d/CentOS-Base.repo
+
 # cups-devel required by pycups
 yum install -y cups-devel
 
