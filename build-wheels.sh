@@ -18,10 +18,14 @@ fi
 
 set -e
 
+PYBIN=/opt/python/${PY_VER}/bin
+
+# https://github.com/pypa/packaging/issues/91
+${PYBIN}/pip install -U "setuptools<34"
+
 # Compile wheels
 mkdir -p /io/cache
 rm -fr /io/wheelhouse.tmp
-PYBIN=/opt/python/${PY_VER}/bin
 for req in $REQS; do
   ${PYBIN}/pip wheel -r /io/$req -w /io/wheelhouse.tmp/ --cache-dir=/io/cache
 done
