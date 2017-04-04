@@ -8,7 +8,7 @@ addons:
   ssh_known_hosts: wheelhouse.acsone.eu
 
 env:
-  - DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp27-cp27mu REQS="requirements-py3o.txt requirements-odoo-latest.txt requirements-odoo8.txt requirements-odoo9.txt requirements-odoo10.txt requirements-oca.txt"
+  - DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp27-cp27mu REQS="requirements-latest.txt requirements-oca.txt requirements-py3o-renderserver.txt requirements-py3o-fusion.txt requirements-odoo8.txt requirements-odoo9.txt requirements-odoo10.txt requirements-odoomaster.txt"
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_3af06edbe5cf_key -iv $encrypted_3af06edbe5cf_iv -in deploy_rsa.enc -out deploy_rsa -d
