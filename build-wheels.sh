@@ -1,6 +1,5 @@
 #!/bin/bash
 set -x
-shopt -s nullglob
 
 # Enumerate all we need to build
 PY_VER=$1
@@ -34,10 +33,13 @@ done
 rm -fr /io/wheelhouse
 mkdir -p /io/wheelhouse
 rm -f /io/wheelhouse.tmp/pip-*.whl /io/wheelhouse.tmp/setuptools-*.whl
-mv /io/wheelhouse.tmp/*-any.whl /io/wheelhouse/
+set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-any.whl ; set -e
 
 # Bundle external shared libraries into the wheels
-for whl in /io/wheelhouse.tmp/*-linux_$(uname -i).whl; do
-    auditwheel repair $whl -w /io/wheelhouse/
-    rm $whl
+for whl in $(ls /io/wheelhouse.tmp/*-linux_$(uname -i).whl); do
+    auditwheel repair /io/wheelhouse.tmp/$whl -w /io/wheelhouse/
+    rm /io/wheelhouse.tmp/$whl
 done
+
+# Some ready-to-use wheels we got from pypi that where not processed by auditwheel
+set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-${PY_VER}-manylinux1_$(uname -i).whl ; set -e
