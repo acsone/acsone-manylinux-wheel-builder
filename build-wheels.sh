@@ -37,8 +37,8 @@ set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-any.whl ; set -e
 
 # Bundle external shared libraries into the wheels
 for whl in $(ls /io/wheelhouse.tmp/*-linux_$(uname -i).whl); do
-    auditwheel repair /io/wheelhouse.tmp/$whl -w /io/wheelhouse/
-    rm /io/wheelhouse.tmp/$whl
+    auditwheel repair $whl -w /io/wheelhouse/
+    rm $whl
 done
 
 # Some ready-to-use wheels we got from pypi that where not processed by auditwheel
