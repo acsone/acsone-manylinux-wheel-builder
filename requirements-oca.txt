@@ -1,4 +1,5 @@
 genshi
+invoice2data
 pycoda
 pycrypto
 pycups
