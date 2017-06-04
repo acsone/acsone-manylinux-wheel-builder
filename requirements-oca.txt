@@ -2,5 +2,6 @@ genshi
 pycoda
 pycrypto
 pycups
+pypdf2
 py-Asterisk
 xlsxwriter
