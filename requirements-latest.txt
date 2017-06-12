@@ -10,7 +10,9 @@ genshi
 Genshi
 gevent
 greenlet
+html2text
 incremental
+invoice2data
 jcconv
 Jinja2
 JPype1
@@ -42,9 +44,13 @@ pyf.station
 pyf.transport
 Pygments
 pyjon.events
+pyjon-utils
 pyjon.utils
+pyldap
 pyparsing
 pyPdf
+pypdf2
+PyPDF2
 pyserial
 Python-Chart
 python-dateutil
@@ -58,6 +64,7 @@ reportlab
 requests
 simplejson
 six
+smbpasswd
 suds-jurko
 Twisted
 unittest2

@@ -3,7 +3,7 @@ Genshi==0.7
 incremental==16.10.1
 lxml==3.6.4
 py3o.formats==0.3
-py3o.fusion==0.8.6
+py3o.fusion==0.8.7
 py3o.renderclient==0.2
 py3o.template==0.9.11
 py3o.types==0.1.1
