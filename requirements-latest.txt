@@ -22,6 +22,7 @@ MarkupSafe
 mock
 num2words
 ofxparse
+paramiko
 passlib
 Pillow
 psutil
