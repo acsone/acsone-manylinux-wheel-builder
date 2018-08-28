@@ -1,4 +1,5 @@
 babel
+chardet
 decorator
 docutils
 ebaysdk
@@ -9,6 +10,7 @@ greenlet
 html2text
 invoice2data
 jinja2
+libsass
 lxml
 mako
 markupsafe
