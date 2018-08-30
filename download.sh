@@ -3,7 +3,9 @@ set -e -x
 rm -fr downloads
 mkdir downloads
 pushd downloads
-wget -nv https://github.com/apple/cups/releases/download/v2.2.8/cups-2.2.8-source.tar.gz -O cups.tgz
+# cups 2.2.8 does not build on this old images, do stick to 2.2.3
+wget -nv https://github.com/apple/cups/releases/download/v2.2.3/cups-2.2.3-source.tar.gz -O cups.tgz
+# ftp not working on travis?
 #wget -nv ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz -O cyrus-sasl.tgz
 wget -nv https://github.com/cyrusimap/cyrus-sasl/archive/cyrus-sasl-2.1.27-rc7.tar.gz -O cyrus-sasl.tgz
 wget -nv https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.46.tgz -O openldap.tgz
