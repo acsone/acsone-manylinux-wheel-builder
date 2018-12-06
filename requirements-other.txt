@@ -1,2 +1,3 @@
 smbpasswd
 paramiko
+M2Crypto
