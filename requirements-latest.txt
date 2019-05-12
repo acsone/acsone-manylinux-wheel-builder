@@ -15,6 +15,7 @@ jcconv
 jinja2
 jpype1
 lxml
+m2crypto
 mako
 markupsafe
 mock

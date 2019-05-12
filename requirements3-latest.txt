@@ -47,3 +47,4 @@ werkzeug
 xlrd
 xlsxwriter
 xlwt
+zeep
