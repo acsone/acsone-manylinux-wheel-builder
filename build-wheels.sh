@@ -4,9 +4,12 @@ set -x
 # Enumerate all we need to build
 PY_VER=$1
 shift
+MANYLINUX_VER=$1
+shift
 REQS=$@
 
 echo PY_VER=$PY_VER
+echo MANYLINUX_VER=$MANYLINUX_VER
 echo REQS=$REQS
 
 /io/build-deps.sh
