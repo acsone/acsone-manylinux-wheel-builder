@@ -1,6 +1,5 @@
 argparse
 babel
-constantly
 decorator
 docutils
 ebaysdk
@@ -9,11 +8,9 @@ gdata
 genshi
 gevent
 greenlet
-incremental
 invoice2data
 jcconv
 jinja2
-jpype1
 lxml
 m2crypto
 mako
@@ -27,24 +24,13 @@ psutil
 psycogreen
 psycopg2
 py3o.formats
-py3o.fusion
-py3o.renderclient
-py3o.renderers.juno
-py3o.renderserver
 py3o.template
-py3o.types
 py-asterisk
 pycoda
 pycrypto
 pycups
 pydot
-pyf.splitter
-pyf.station
-pyf.transport
-pygments
-pyjon.events
 pyjon-utils
-pyjon.utils
 pyparsing
 pypdf
 pypdf2
@@ -63,7 +49,6 @@ simplejson
 six
 smbpasswd
 suds-jurko
-twisted
 unittest2
 vatnumber
 vobject
@@ -72,4 +57,3 @@ wsgiref
 xlrd
 xlsxwriter
 xlwt
-zope.interface

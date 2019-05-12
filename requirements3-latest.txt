@@ -23,6 +23,8 @@ passlib
 pillow
 psutil
 psycopg2
+py3o.formats
+py3o.template
 py-asterisk
 pycoda
 pycrypto

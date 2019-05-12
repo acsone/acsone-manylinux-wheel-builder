@@ -1,5 +1,7 @@
 genshi
 invoice2data
+py3o.formats
+py3o.template
 pycoda
 pycrypto
 pycups
