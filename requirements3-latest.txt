@@ -12,7 +12,6 @@ invoice2data
 jinja2
 libsass
 lxml
-m2crypto
 mako
 markupsafe
 mock

@@ -12,7 +12,6 @@ invoice2data
 jcconv
 jinja2
 lxml
-m2crypto
 mako
 markupsafe
 mock
