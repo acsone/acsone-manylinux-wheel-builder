@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e -x
 
-DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+MANYLINUX_VER=manylinux1_x86_64
+DOCKER_IMAGE=quay.io/pypa/${MANYLINUX_VER}
 PY_VER=cp27-cp27mu
 REQS=$(ls requirements-*.txt)
 

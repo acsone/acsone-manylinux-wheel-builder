@@ -36,10 +36,10 @@ rm -f /io/wheelhouse.tmp/pip-*.whl /io/wheelhouse.tmp/setuptools-*.whl
 set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-any.whl ; set -e
 
 # Bundle external shared libraries into the wheels
-for whl in $(ls /io/wheelhouse.tmp/*-linux_$(uname -i).whl); do
-    auditwheel repair $whl -w /io/wheelhouse/
+for whl in $(ls /io/wheelhouse.tmp/*-linux_x86_64.whl); do
+    auditwheel repair --plat $MANYLINUX_VER $whl -w /io/wheelhouse/
     rm $whl
 done
 
 # Some ready-to-use wheels we got from pypi that where not processed by auditwheel
-set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-${PY_VER}-manylinux1_$(uname -i).whl ; set -e
+set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-${PY_VER}-manylinux*_x86_64.whl ; set -e

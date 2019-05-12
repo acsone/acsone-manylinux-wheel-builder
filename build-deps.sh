@@ -16,7 +16,9 @@ cd build
 special_echo "some yum install..."
 
 # since CentOS 5 is obsolete, use the vault repo
-sed -i'' -e 's/^mirrorlist/#mirrorlist/' -e 's,^#baseurl=http://mirror.centos.org,baseurl=http://vault.centos.org,' /etc/yum.repos.d/CentOS-Base.repo
+if [ "${MANYLINUX_VER}" == "manylinux1_x86_64"] ; then
+    sed -i'' -e 's/^mirrorlist/#mirrorlist/' -e 's,^#baseurl=http://mirror.centos.org,baseurl=http://vault.centos.org,' /etc/yum.repos.d/CentOS-Base.repo
+fi
 
 # build tools
 yum install -y groff
