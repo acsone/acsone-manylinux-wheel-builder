@@ -6,7 +6,7 @@ PY_VER=$1
 shift
 REQS=$@
 
-echo PYVER=$PY_VER
+echo PY_VER=$PY_VER
 echo REQS=$REQS
 
 /io/build-deps.sh
@@ -41,5 +41,5 @@ for whl in $(ls /io/wheelhouse.tmp/*-linux_x86_64.whl); do
     rm $whl
 done
 
-# Some ready-to-use wheels we got from pypi that where not processed by auditwheel
+# Some ready-to-use wheels we got from pypi that were not processed by auditwheel
 set +e ; mv -v -u -t /io/wheelhouse/ /io/wheelhouse.tmp/*-${PY_VER}-manylinux*_x86_64.whl ; set -e
