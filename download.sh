@@ -3,12 +3,8 @@ set -e -x
 rm -fr downloads
 mkdir -p downloads
 pushd downloads
-if [ "${MANYLINUX_VER}" == "manylinux1_x86_64" ] ; then
-   # cups 2.2.8 does not build on this old images, do stick to 2.2.3
-    wget -nv https://github.com/apple/cups/releases/download/v2.2.3/cups-2.2.3-source.tar.gz -O cups.tgz
-else
-    wget -nv https://github.com/apple/cups/releases/download/v2.2.11/cups-2.2.11-source.tar.gz -O cups.tgz
-fi
+# cups 2.2.8+ does not build on this old images, do stick to 2.2.3
+wget -nv https://github.com/apple/cups/releases/download/v2.2.3/cups-2.2.3-source.tar.gz -O cups.tgz
 #wget -nv ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz -O cyrus-sasl.tgz
 cp ../vendor/cyrus-sasl-2.1.26.tar.gz cyrus-sasl.tgz
 wget -nv https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.46.tgz -O openldap.tgz
