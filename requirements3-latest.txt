@@ -20,6 +20,7 @@ ofxparse
 paramiko
 passlib
 pillow
+polib
 psutil
 psycopg2
 py3o.formats

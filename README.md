@@ -11,6 +11,8 @@ What is built:
 * Odoo 9 requirements
 * Odoo 10 requirements
 * Odoo 11 requirements
+* Odoo 12 requirements
+* Odoo 13 requirements
 * Various requirements for Odoo Community Association packages
 
 Inspired by https://github.com/pypa/python-manylinux-demo
