@@ -35,6 +35,8 @@ pyparsing
 pypdf2
 pyserial
 python-dateutil
+python-ldap
+python-stdnum
 pytz
 pyusb
 pyyaml
