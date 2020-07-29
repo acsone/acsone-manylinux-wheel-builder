@@ -4,7 +4,7 @@ py3o.formats
 py3o.template
 pycoda
 pycrypto
-pycups
+pycups<2
 pypdf2
 py-Asterisk
 xlsxwriter
