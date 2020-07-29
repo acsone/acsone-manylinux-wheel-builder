@@ -29,7 +29,6 @@ pycoda
 pycrypto
 pycups
 pydot
-pyjon-utils
 pyparsing
 pypdf
 pypdf2

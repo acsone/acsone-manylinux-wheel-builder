@@ -4,10 +4,12 @@ decorator
 docutils
 ebaysdk
 feedparser
+freezegun
 genshi
 gevent
 greenlet
 html2text
+idna
 invoice2data
 jinja2
 libsass
