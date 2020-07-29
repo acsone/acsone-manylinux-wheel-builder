@@ -11,7 +11,7 @@ wget -nv https://www.openldap.org/software/download/OpenLDAP/openldap-release/op
 wget -nv https://zlib.net/zlib-1.2.11.tar.gz -O zlib.tgz
 wget -nv https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.1.tar.gz -O krb5.tgz
 wget -nv https://www.openssl.org/source/openssl-1.0.2r.tar.gz -O openssl.tgz
-wget -nv https://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.gz -O postgresql.tgz
+wget -nv https://ftp.postgresql.org/pub/source/v12.3/postgresql-12.3.tar.gz -O postgresql.tgz
 wget -nv http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz -O libxml2.tgz
 wget -nv http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz -O libxslt.tgz
 popd
