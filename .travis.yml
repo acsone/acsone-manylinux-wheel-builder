@@ -9,10 +9,10 @@ addons:
 
 env:
   - MANYLINUX_VER=manylinux1_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp27-cp27mu REQS="requirements-other.txt requirements-latest.txt requirements-oca.txt requirements-odoo8.txt requirements-odoo9.txt requirements-odoo10.txt" 
-  - MANYLINUX_VER=manylinux1_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp35-cp35m REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoomaster.txt"
-  - MANYLINUX_VER=manylinux1_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp36-cp36m REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoomaster.txt"
-  - MANYLINUX_VER=manylinux2010_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux2010_x86_64 PY_VER=cp37-cp37m REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoomaster.txt"
-  - MANYLINUX_VER=manylinux2010_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux2010_x86_64 PY_VER=cp38-cp38 REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoomaster.txt"
+  - MANYLINUX_VER=manylinux1_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp35-cp35m REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt"
+  - MANYLINUX_VER=manylinux1_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64 PY_VER=cp36-cp36m REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoo13.txt"
+  - MANYLINUX_VER=manylinux2010_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux2010_x86_64 PY_VER=cp37-cp37m REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoo13.txt requirements3-odoomaster.txt"
+  - MANYLINUX_VER=manylinux2010_x86_64 DOCKER_IMAGE=quay.io/pypa/manylinux2010_x86_64 PY_VER=cp38-cp38 REQS="requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo13.txt requirements3-odoomaster.txt"
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_3af06edbe5cf_key -iv $encrypted_3af06edbe5cf_iv -in deploy_rsa.enc -out deploy_rsa -d
