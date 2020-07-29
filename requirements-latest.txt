@@ -27,7 +27,7 @@ py3o.template
 py-asterisk
 pycoda
 pycrypto
-pycups
+pycups<2
 pydot
 pyparsing
 pypdf
