@@ -22,7 +22,7 @@ yum install -y groff
 yum install -y zlib-devel openssl-devel
 
 # libjpeg and libtiff required for Pillow
-yum install -y libtiff-devel libjpeg-devel
+yum install -y libtiff-devel libjpeg-devel libwebp-devel
 
 # cffi required for cryptography
 yum install -y libffi-devel
