@@ -12,11 +12,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - MANYLINUX_VER: manylinux2010_x86_64
+          - MANYLINUX_VER: manylinux2014_x86_64
             DOCKER_IMAGE: quay.io/pypa/manylinux2014_x86_64
             PY_VER: cp36-cp36m
             REQS: "requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo11.txt requirements3-odoo12.txt requirements3-odoo13.txt"
-          - MANYLINUX_VER: manylinux2010_x86_64
+          - MANYLINUX_VER: manylinux2014_x86_64
             DOCKER_IMAGE: quay.io/pypa/manylinux2014_x86_64
             PY_VER: cp38-cp38
             REQS: "requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo13.txt requirements3-odoo14.txt requirements3-odoomaster.txt"
