@@ -39,6 +39,7 @@ yum install -y openldap-devel
 # postgresql for psycopg2
 yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql13-devel
+ln -s /usr/pgsql-13/bin/pg_config /usr/local/bin/
 
 # recent libxml2 required for lxml
 special_echo "libxml2"
