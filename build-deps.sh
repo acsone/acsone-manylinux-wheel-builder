@@ -22,13 +22,10 @@ yum install -y groff
 yum install -y zlib-devel openssl-devel
 
 # libjpeg and libtiff required for Pillow
-yum install -y libtiff-devel libjpeg-devel libwebp-devel
+yum install -y libtiff-devel libjpeg-devel
 
 # cffi required for cryptography
 yum install -y libffi-devel
-
-# recent cups
-yum install -y cups-devel
 
 # krb5 for postgres and openldap
 yum install -y krb5-devel
@@ -40,6 +37,16 @@ yum install -y openldap-devel
 yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql13-devel
 ln -s /usr/pgsql-13/bin/pg_config /usr/local/bin/
+
+# recent cups
+special_echo "cups"
+rm -fr cups-*
+tar zxvf $DOWNLOADS/cups.tgz
+pushd cups-*
+./configure --prefix=/usr/local
+make
+make install
+popd
 
 # recent libxml2 required for lxml
 special_echo "libxml2"
