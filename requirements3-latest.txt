@@ -1,4 +1,5 @@
 babel
+# bullseye version, focal patched 2.10
 chardet
 decorator
 docutils
@@ -48,6 +49,7 @@ requests
 smbpasswd
 suds-jurko
 vatnumber
+# vatnumber requirement. last version compatible
 vobject
 werkzeug
 xlrd
