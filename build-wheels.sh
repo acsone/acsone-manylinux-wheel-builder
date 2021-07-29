@@ -35,5 +35,4 @@ mkdir -p /io/wheelhouse
 # Bundle external shared libraries into the wheels
 for whl in $(ls /io/wheelhouse.tmp/*-linux_x86_64.whl); do
     auditwheel repair --plat $MANYLINUX_VER $whl -w /io/wheelhouse/
-    rm $whl
 done
