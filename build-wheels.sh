@@ -22,6 +22,12 @@ set -e
 
 PYBIN=/opt/python/${PY_VER}/bin
 
+# Static linking for xmlsec: https://github.com/mehcode/python-xmlsec/issues/157#issuecomment-693254958
+export PYXMLSEC_STATIC_DEPS=1
+# workaround xmlssec static build issue: https://gitlab.gnome.org/GNOME/libxslt/-/issues/52
+# should be solved with libxslt 1.1.35
+export PYXMLSEC_LIBXML2_VERSION=2.9.10
+
 # Compile wheels
 mkdir -p /io/cache
 rm -fr /io/wheelhouse.tmp
