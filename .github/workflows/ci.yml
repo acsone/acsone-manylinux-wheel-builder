@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "master"
+  pull_request:
 
 jobs:
   build:
@@ -42,3 +43,4 @@ jobs:
           eval $(ssh-agent -s)
           ssh-add <(echo "${{ secrets.SSH_DEPLOY_KEY }}")
           rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./wheelhouse/ "manylinux@wheelhouse.acsone.eu:"
+        if: ${{ github.event_name == 'push' }}
