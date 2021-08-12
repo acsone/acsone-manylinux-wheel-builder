@@ -1,3 +1,4 @@
 smbpasswd
 paramiko
 PyKCS11
+xmlsec

@@ -1,3 +1,0 @@
-smbpasswd
-paramiko
-xmlsec
