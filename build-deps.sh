@@ -38,6 +38,9 @@ yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_6
 yum -y install postgresql13-devel
 ln -s /usr/pgsql-13/bin/pg_config /usr/local/bin/
 
+# xmlsec build dependencies
+yum install -y xmlsec1-devel xmlsec1-openssl-devel libtool-ltdl-devel
+
 # recent cups
 special_echo "cups"
 rm -fr cups-*
