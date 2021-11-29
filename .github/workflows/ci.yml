@@ -39,7 +39,7 @@ jobs:
       - name: Download dependencies
         run: ./download.sh
       - name: Build
-        run: docker run --rm -v `pwd`:/io $DOCKER_IMAGE /io/build-wheels.sh $PY_VER $MANYLINUX_VER $REQS
+        run: docker run --rm -v `pwd`:/io $DOCKER_IMAGE /io/build-wheels.sh $PY_VER "$PRE_INSTALL" $MANYLINUX_VER $REQS
       - name: Result
         run: ls -al wheelhouse/
       - name: Publish
