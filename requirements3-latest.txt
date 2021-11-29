@@ -33,7 +33,9 @@ pycoda
 pycrypto
 pycups
 pydot
+pykcs11
 pyldap
+pyopenssl
 pyparsing
 pypdf2
 pyserial
@@ -47,7 +49,6 @@ qrcode
 reportlab
 requests
 smbpasswd
-suds-jurko
 vatnumber
 # vatnumber requirement. last version compatible
 vobject
@@ -55,4 +56,5 @@ werkzeug
 xlrd
 xlsxwriter
 xlwt
+xmlsec
 zeep
