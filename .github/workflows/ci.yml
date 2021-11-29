@@ -32,7 +32,7 @@ jobs:
       MANYLINUX_VER: ${{ matrix.MANYLINUX_VER }}
       DOCKER_IMAGE: ${{ matrix.DOCKER_IMAGE }}
       PY_VER: ${{ matrix.PY_VER }}
-      PRE_INSTALL: "${{ PRE_INSTALL }}"
+      PRE_INSTALL: "${{ matrix.PRE_INSTALL }}"
       REQS: ${{ matrix.REQS }}
     steps:
       - uses: actions/checkout@v2
