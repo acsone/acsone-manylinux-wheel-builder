@@ -22,6 +22,8 @@ set -e
 
 PYBIN=/opt/python/${PY_VER}/bin
 
+${PYBIN}/pip install -U ${PRE_INSTALL}
+
 # Static linking for xmlsec: https://github.com/mehcode/python-xmlsec/issues/157#issuecomment-693254958
 export PYXMLSEC_STATIC_DEPS=1
 # workaround xmlssec static build issue: https://gitlab.gnome.org/GNOME/libxslt/-/issues/52

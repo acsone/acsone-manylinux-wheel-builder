@@ -16,23 +16,23 @@ jobs:
           - MANYLINUX_VER: manylinux2014_x86_64
             DOCKER_IMAGE: quay.io/pypa/manylinux2014_x86_64
             PY_VER: cp36-cp36m
-            SETUPTOOLS_VERSION: "<58"
+            PRE_INSTALL: "'setuptools<58'"
             REQS: "requirements3.6.txt requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo12.txt requirements3-odoo13.txt"
           - MANYLINUX_VER: manylinux2014_x86_64
             DOCKER_IMAGE: quay.io/pypa/manylinux2014_x86_64
             PY_VER: cp38-cp38
-            SETUPTOOLS_VERSION: ""
+            PRE_INSTALL: "setuptools"
             REQS: "requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo13.txt requirements3-odoo14.txt requirements3-odoo15.txt requirements3-odoomaster.txt"
           - MANYLINUX_VER: manylinux2014_x86_64
             DOCKER_IMAGE: quay.io/pypa/manylinux2014_x86_64
             PY_VER: cp39-cp39
-            SETUPTOOLS_VERSION: ""
+            PRE_INSTALL: "setuptools"
             REQS: "requirements3-other.txt requirements3-latest.txt requirements3-oca.txt requirements3-odoo14.txt requirements3-odoo15.txt requirements3-odoomaster.txt"
     env:
       MANYLINUX_VER: ${{ matrix.MANYLINUX_VER }}
       DOCKER_IMAGE: ${{ matrix.DOCKER_IMAGE }}
       PY_VER: ${{ matrix.PY_VER }}
-      SETUPTOOLS_VERSION: ${{ SETUPTOOLS_VERSION }}
+      PRE_INSTALL: "${{ PRE_INSTALL }}"
       REQS: ${{ matrix.REQS }}
     steps:
       - uses: actions/checkout@v2
