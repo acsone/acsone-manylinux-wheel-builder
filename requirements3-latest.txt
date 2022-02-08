@@ -49,8 +49,6 @@ qrcode
 reportlab
 requests
 smbpasswd
-vatnumber
-# vatnumber requirement. last version compatible
 vobject
 werkzeug
 xlrd
