@@ -49,6 +49,7 @@ qrcode
 reportlab
 requests
 smbpasswd
+urllib3
 vobject
 werkzeug
 xlrd
