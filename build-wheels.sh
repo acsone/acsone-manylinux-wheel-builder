@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 
+source /etc/os-release
+
 # Enumerate all we need to build
 PY_VER=$1
 shift
@@ -15,7 +17,7 @@ echo PRE_INSTALL=$PRE_INSTALL
 echo MANYLINUX_VER=$MANYLINUX_VER
 echo REQS=$REQS
 
-/io/build-deps.sh
+/io/build-deps-${ID}.sh
 if [ $? -ne 0 ] ; then
   cat /io/build-deps.log
   exit 1
