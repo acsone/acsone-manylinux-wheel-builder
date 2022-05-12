@@ -29,6 +29,9 @@ ${PYBIN}/pip install -U ${PRE_INSTALL}
 
 # Static linking for xmlsec: https://github.com/mehcode/python-xmlsec/issues/157#issuecomment-693254958
 export PYXMLSEC_STATIC_DEPS=1
+# workaround xmlssec static build issue: https://gitlab.gnome.org/GNOME/libxslt/-/issues/52
+# should be solved with libxslt 1.1.35
+export PYXMLSEC_LIBXML2_VERSION=2.9.10
 export PYXMLSEC_ZLIB_VERSION=1.2.12
 
 # Compile wheels
