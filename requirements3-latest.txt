@@ -1,6 +1,7 @@
 babel
 # bullseye version, focal patched 2.10
 chardet
+cryptography
 decorator
 docutils
 ebaysdk
