@@ -5,7 +5,6 @@ cryptography
 decorator
 docutils
 ebaysdk
-feedparser
 freezegun
 genshi
 gevent
@@ -45,7 +44,6 @@ python-ldap
 python-stdnum
 pytz
 pyusb
-pyyaml
 qrcode
 reportlab
 requests
