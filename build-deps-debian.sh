@@ -17,7 +17,8 @@ cd build
 
 special_echo "some deb install..."
 
-apt-get install apt-transport-https
+apt-get -yq update
+apt-get -y install apt-transport-https
 
 # postgresql for psycopg2
 curl -sSL https://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
