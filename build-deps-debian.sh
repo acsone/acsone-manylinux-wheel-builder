@@ -19,7 +19,12 @@ special_echo "some deb install..."
 
 # postgresql for psycopg2
 curl -sSL http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
-echo "deb http://apt.postgresql.org/pub/repos/apt/ ${VERSION_CODENAME}-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+if [ "${VERSION_CODENAME}" == "stretch" ]; then
+    APT_REPO=http://apt-archive.postgresql.org/pub/repos/apt/ 
+else
+    APT_REPO=http://apt.postgresql.org/pub/repos/apt/
+fi
+echo "deb ${APT_REPO} ${VERSION_CODENAME}-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 apt-get -yq update
 apt-get -y install libpq-dev
 
