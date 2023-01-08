@@ -7,6 +7,7 @@ docutils
 ebaysdk
 freezegun
 genshi
+geoip2
 gevent
 greenlet
 html2text
@@ -15,6 +16,7 @@ invoice2data
 jinja2
 libsass
 lxml
+# lxml 4.6.1 has incompatibility issues with python 3.10
 mako
 markupsafe
 mock
