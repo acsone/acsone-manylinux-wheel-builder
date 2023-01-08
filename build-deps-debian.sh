@@ -17,8 +17,10 @@ cd build
 
 special_echo "some deb install..."
 
+apt-get install apt-transport-https
+
 # postgresql for psycopg2
-curl -sSL http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
+curl -sSL https://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
 if [ "${VERSION_CODENAME}" == "stretch" ]; then
     APT_REPO=https://apt-archive.postgresql.org/pub/repos/apt/ 
 else
