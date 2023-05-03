@@ -2,3 +2,4 @@ smbpasswd
 paramiko
 PyKCS11
 xmlsec
+M2crypto
