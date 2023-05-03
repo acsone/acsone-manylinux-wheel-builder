@@ -39,7 +39,7 @@ requests==2.21.0
 zeep==3.2.0
 vatnumber==1.2
 vobject==0.9.6.1
-Werkzeug==0.14.1 ; sys_platform != 'win32'
+Werkzeug==2.2.3 ; sys_platform != 'win32'
 Werkzeug==0.16.0 ; sys_platform == 'win32'
 XlsxWriter==1.1.2
 xlwt==1.3.*
